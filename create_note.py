@@ -4,12 +4,12 @@ from datetime import datetime
 
 
 def new_note():
-    name = input("Please enter a name for your name:\n")
+    name = input("\nPlease enter a name for your name:\n")
     print("")
-    content = input("Please enter the content of your note:\n")
+    content = input("\nPlease enter the content of your note:\n")
     print("")
     now = datetime.now()
-    data = [name,now,content]
+    data = [name, now, content]
     con = sqlite3.connect("note_taker.db")
     cur = con.cursor()
     cur.execute("INSERT INTO notes VALUES(?,?,?)", data)
