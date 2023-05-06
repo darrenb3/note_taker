@@ -7,11 +7,12 @@ def update_note():
         "\nPlease enter the name of the note you want to update:\n")
     # Need to put error checking here that the record actually exists
     note_content = input("\nPlease enter the new content of the note:\n")
-    now = now = datetime.now()
+    now = datetime.now().strftime('%H:%M:%S %m/%d/%Y')
+    print(now)
     data = [now, note_content, note_name]
     con = sqlite3.connect("note_taker.db")
     cur = con.cursor()
-    cur.execute("UPDATE notes SET date = ?, string = ? WHERE name = ?", data)
+    cur.execute("UPDATE notes SET date = ?, string = ? WHERE name LIKE ?", data)
     con.commit()
     con.close()
     return True

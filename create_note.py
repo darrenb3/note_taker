@@ -8,7 +8,7 @@ def new_note():
     print("")
     content = input("\nPlease enter the content of your note:\n")
     print("")
-    now = datetime.now()
+    now = datetime.now().strftime('%H:%M:%S %m/%d/%Y')
     data = [name, now, content]
     con = sqlite3.connect("note_taker.db")
     cur = con.cursor()

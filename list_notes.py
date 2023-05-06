@@ -6,7 +6,7 @@ def list_all_notes():
     con = sqlite3.connect("note_taker.db")
     cur = con.cursor()
     for row in cur.execute("SELECT name, date, string FROM notes"):
-        print(row)
+        print(f"{row[0]} | {row[1]} | {row[2]}")
     con.close()
 
 
