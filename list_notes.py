@@ -17,7 +17,8 @@ def list_note():
     con = sqlite3.connect("note_taker.db")
     cur = con.cursor()
     row = cur.execute(
-        "SELECT name, date,string from notes WHERE name = ?", [user_input])
+        "SELECT name, date,string from notes WHERE name LIKE ?", [user_input])
     result = row.fetchone()
+    print(f"\n{result[0]}\nLast updated at {result[1]}:\n")
     print(result[2])
     print("")
