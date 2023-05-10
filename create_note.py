@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 def new_note():
-    name = input("\nPlease enter a name for your name:\n")
+    name = input("\nPlease enter a name for your notel:\n")
     print("")
     content = input("\nPlease enter the content of your note:\n")
     print("")
