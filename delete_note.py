@@ -1,13 +1,16 @@
 import sqlite3
+from rich.console import Console
+
+console = Console(highlight=False)
 
 
 def delete_note():
-    note_name = input(
+    note_name = console.input(
         "\nPlease enter the name of the note you want to delete:\n")
     # Need to put error checking here that the record actually exists
     while True:
-        confirmation = input(
-            f"\nAre you sure that you want to delete {note_name}? This action is irreversible. (y/N):\n")
+        confirmation = console.input(
+            f"\nAre you sure that you want to delete {note_name}? [bold red]This action is irreversible[/bold red]. (y/[bold]N[/bold]):\n")
         if confirmation.lower() == "n":
             break
         elif confirmation.lower() == "y":
@@ -17,4 +20,4 @@ def delete_note():
             con.commit()
             return True
         else:
-            print("Please enter a valid confirmation.")
+            console.print("Please enter a valid confirmation.")
