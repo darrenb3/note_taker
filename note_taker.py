@@ -23,7 +23,14 @@ if __name__ == "__main__":
         con.close()
         console.print("Database created...")
     console.print("Preflight complete!\n")
-    console.print("\nWelcome to Note Taker!\n")
+    console.print("\nWelcome to")  # Generated with TextKool useing Big font
+    logo = """ _   _       _         _______    _             
+| \ | |     | |       |__   __|  | |            
+|  \| | ___ | |_ ___     | | __ _| | _____ _ __ 
+| . ` |/ _ \| __/ _ \    | |/ _` | |/ / _ \ '__|
+| |\  | (_) | ||  __/    | | (_| |   <  __/ |   
+|_| \_|\___/ \__\___|    |_|\__,_|_|\_\___|_|\n"""
+    console.print(logo, style="#ffa6c9")
     while True:
         help_options = """\nTo enter a new note please type new
 To list all notes please type list all
@@ -32,7 +39,8 @@ To update a note please type update
 To delete a note please type delete
 To exit the app please type exit
 """
-        user_input = input("\nPlease enter a command:\n")
+        user_input = console.input(
+            "\nPlease enter a command. For a list of commands use [bold]help[/bold]:\n")
         if user_input == "exit":
             console.print("\nThank you for using Note Taker\n\nExiting...\n")
             break
